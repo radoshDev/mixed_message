@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+
+}
+
+body {
+    background-color: #10162f;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem 4rem;
+    width: 100%;
+}
+
+/*  Header */
+.header h1 {
+    font-size: 2.125rem;
+    margin-bottom: .5rem;
+}
+
+.header p {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: .5rem 1rem 1rem 0;
+    max-width: 28rem;
+}
+
+/*  Main  */
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 1rem;
+}
+
+section {
+    background-color: rgba(246, 245, 250, 1);
+    border-radius: 2px;
+    overflow: hidden;
+
+}
+section .title {
+    margin: 1rem 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+section .title h3 {
+    color: rgb(15,22,47);
+    font-size: 1rem;
+    font-weight: normal;
+}
+section .title span {
+    color: rgb(15,22,47);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+sectin
