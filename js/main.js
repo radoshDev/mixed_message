@@ -1,82 +1,59 @@
-let dragItems = document.querySelectorAll('.task');
-let boxes = document.querySelectorAll('.list_container')
-let todoBlock = document.querySelector('#todo_block');
-let processBlock = document.querySelector('#progress_block');
-let doneBlock = document.querySelector('#done_block');
-let tasksListElement = document.querySelector('#todo_block .task_box');
+let dragItems = document.querySelectorAll(".task");
+let boxes = document.querySelectorAll(".list_container");
+let completeCounter = document.querySelector(".task-completed-counter");
+let taskBoxDone = document.querySelectorAll("#done_block .task");
+completeCounter.innerText = `${taskBoxDone.length} / ${dragItems.length} done`;
 
-for (let task of dragItems) {
-	task.draggable = true;
+for (let item of dragItems) {
+	item.draggable = true;
+	item.addEventListener("mouseenter", () => {
+		item.classList.add("hover");
+	});
+	item.addEventListener("mouseleave", () => {
+		item.classList.remove("hover");
+	});
+	item.addEventListener("dragstart", () => {
+		item.classList.add("selected");
+	});
+	item.addEventListener("dragend", () => {
+		item.classList.remove("selected");
+		let taskBoxDoneCur = document.querySelectorAll("#done_block .task");
+		completeCounter.innerText = `${taskBoxDoneCur.length} / ${dragItems.length} done`;
+	});
 }
 
-boxes.forEach(el => {
-	el.addEventListener('dragstart', dragStart);
-	el.addEventListener('dragend', dragEnd)
-	el.addEventListener('dragenter', dragEnter,false);
-	// el.addEventListener('dragover', dragOver, false);
-	el.addEventListener('dragleave', dragLeave,false);
-	// el.addEventListener('drop', drop, false);
-})
+boxes.forEach((box) => {
+	box.addEventListener("dragover", (e) => {
+		e.preventDefault();
+		const dragging = document.querySelector(".task.selected");
+		const taskBox = box.querySelector(".task_box");
+		const afterElement = getDragAfterElement(box, e.clientY);
+		dragItems.forEach((el) => {
+			el.classList.remove("hover");
+		});
 
-function dragStart(e) {
-	e.target.classList.add(`selected`);
-	e.dataTransfer.setData('text/plain', e.target.id);
+		if (!afterElement) {
+			taskBox.appendChild(dragging);
+		} else {
+			taskBox.insertBefore(dragging, afterElement);
+		}
+	});
+});
+
+function getDragAfterElement(container, y) {
+	let draggingElements = [
+		...container.querySelectorAll(".task:not(.selected)"),
+	];
+	return draggingElements.reduce(
+		(closest, child) => {
+			let box = child.getBoundingClientRect();
+			let offset = y - box.top - box.height / 2;
+			if (offset < 0 && offset > closest.offset) {
+				return { offset, element: child };
+			} else {
+				return closest;
+			}
+		},
+		{ offset: Number.NEGATIVE_INFINITY }
+	).element;
 }
-
-function dragEnd(e) {
-	e.target.classList.remove(`selected`);
-}
-
-tasksListElement.addEventListener('dragover', (e) => {
-	e.preventDefault();
-	const activeElement = tasksListElement.querySelector('.selected');
-	const currentElement = e.target;
-	const isMovable = activeElement !== currentElement &&
-		currentElement.classList.contains('task');
-
-	if (!isMovable) {
-		return false;
-	}
-	const nextElement = (currentElement === activeElement.nextElementSibling) ?
-		currentElement.nextElementSibling :
-		currentElement;
-
-	tasksListElement.insertBefore(activeElement, nextElement)
-})
-
-
-//
-//
-// function dragStart(e) {
-// 	e.dataTransfer.setData('text/plain', e.target.id);
-// 	setTimeout(() => {
-// 		e.target.classList.add('hide');
-// 	}, 0)
-//
-// }
-//
-function dragEnter(e) {
-	const target = e.target;
-	const targetContainer = target.parentElement ===
-	e.preventDefault();
-	e.target.classList.add('drag-over');
-}
-// function dragOver(e) {
-// 	e.preventDefault();
-// 	e.target.classList.add('drag-over');
-//
-// }
-function dragLeave(e) {
-	e.target.classList.remove('drag-over')
-}
-//
-// function drop(e) {
-// 	e.target.classList.remove('drag-over');
-//
-// 	const id = e.dataTransfer.getData('text/plain');
-// 	const draggable = document.getElementById(id);
-//
-// 	e.target.appendChild(draggable);
-//
-// 	draggable.classList.remove('hide')
-// }

@@ -1,97 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mixed Message</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="wrapper">
-    <header class="header">
-        <h1>Project Tasks</h1>
-        <p>Keep track of your progress by dragging each task from "To Do" to "In Progress" to "Done" as you work on
-            them. You can also click on a task to see more information about it.</p>
-    </header>
-    <main>
-        <section id="todo_block" class="list_container">
-            <div class="title"><h3>To Do</h3></div>
-            <div class="task_box first">
-                <div id="item0" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project 1</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="item1" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project 2</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="item2" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project 3</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="item3" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project 4</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="item4" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project 5</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="item5" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project 6</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="item6" class="task">
-                    <div class="content_block">
-                        <span class="task_title">Plan your project</span>
-                        <div class="task_description">
-                            <p>Visualize your end result.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="progress_block" class="list_container">
-            <div class="title"><h3>In Progress</h3></div>
-            <div class="task_box second"></div>
-        </section>
-        <section id="done_block" class="list_container">
-            <div class="title">
-                <h3>Done</h3>
-                <span class="task-completed-counter">0 / 8 done</span>
-            </div>
-            <div class="task_box third"></div>
-        </section>
-    </main>
-</div>
-<script src="js/main.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Mixed Message</title>
+		<link rel="stylesheet" href="style/style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<h1>Project Tasks</h1>
+				<p>
+					Keep track of your progress by dragging each task from "To Do" to "In
+					Progress" to "Done" as you work on them. You can also click on a task
+					to see more information about it.
+				</p>
+			</header>
+			<main>
+				<section id="todo_block" class="list_container">
+					<div class="title"><h3>To Do</h3></div>
+					<div class="task_box empty">
+						<div id="item0" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project 1</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+						<div id="item1" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project 2</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+						<div id="item2" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project 3</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+						<div id="item3" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project 4</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+						<div id="item4" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project 5</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+						<div id="item5" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project 6</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+						<div id="item6" class="task">
+							<div class="content_block">
+								<span class="task_title">Plan your project</span>
+								<div class="task_description">
+									<p>Visualize your end result.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="progress_block" class="list_container">
+					<div class="title"><h3>In Progress</h3></div>
+					<div class="task_box empty"></div>
+				</section>
+				<section id="done_block" class="list_container">
+					<div class="title">
+						<h3>Done</h3>
+						<span class="task-completed-counter">0 / 8 done</span>
+					</div>
+					<div class="task_box empty"></div>
+				</section>
+			</main>
+		</div>
+		<script src="js/main.js"></script>
+	</body>
 </html>
